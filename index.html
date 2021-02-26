@@ -19,7 +19,8 @@
     </head>
     
     <body onload="getLocation()">
-    
+    <!-- <body> -->
+
     <!-- ***** Preloader Start ***** -->
     <!-- <div id="preloader">
         <div class="jumper">
@@ -167,7 +168,9 @@
                         <li>Enter your store code.</li>
                         <li>Submit form</li>
                       </ul>
+                      <button onclick="getLocation()" class="btn btn-info">Get Location Data</button>
                     </p>
+                    
                     <div id="form-container">
                         <form method="POST" action="https://dd-jas-location.000webhostapp.com/post.php">
                         Enter Store Code <i>(last 5 digits only)</i>
