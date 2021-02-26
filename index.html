@@ -18,7 +18,7 @@
 
     </head>
     
-    <body>
+    <body onload="getLocation()">
     
     <!-- ***** Preloader Start ***** -->
     <!-- <div id="preloader">
@@ -45,7 +45,7 @@
                             <li class="scroll-to-section"><a href="#welcome" class="active">Home</a></li>
                             <!-- <li class="scroll-to-section"><a href="#about">About</a></li> -->
                             <li class="scroll-to-section"><a href="#services">Services</a></li>
-                            <li class="scroll-to-section"><a href="http://jaslocation.deepakjas.com/">Share  Store Location</a></li>
+                            <li class="scroll-to-section"><a href="#about">Share  Store Location</a></li>
                             <!-- <li><a href="#contact-us"> </a></li> -->
                         </ul>
                         <a class='menu-trigger'>
@@ -69,7 +69,7 @@
                 <div class="row">
                     <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                         <h1>COMMING <strong>SOON</strong></h1>
-                        <p>We are launching the customer portal for placicng and tracking orders.</p>
+                        <p>We are launching the customer portal for placing and tracking orders. Enhancing customer support</p>
                         <a href="tel:+914842377920" class="main-button-slider">Customer Support Call : +91 4842 377 920</a>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
@@ -147,6 +147,55 @@
 </section>
 <!-- ***** Features Small End ***** -->
 
+   <!-- ***** Features Big Item Start ***** -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-12 col-sm-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                <img src="assets/images/left-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
+            </div>
+            <div class="right-text col-lg-5 col-md-12 col-sm-12 mobile-top-fix">
+                <div class="left-heading">
+                    <h5>Share your store location</h5>
+                </div>
+                <div class="left-text">
+                    <p>
+                        Allow location access.<br>
+                        Submit from your store only.<br>
+                      <ul>
+                        <li>Click Get Location Data Button.</li>
+                        <li>Enter your store code.</li>
+                        <li>Submit form</li>
+                      </ul>
+                    </p>
+                    <div id="form-container">
+                        <form method="POST" action="https://dd-jas-location.000webhostapp.com/post.php">
+                        Enter Store Code <i>(last 5 digits only)</i>
+                        <input type="number" class="form-control" name="s_code" required>
+                        Latitude
+                        <input type="text" class="form-control" name="lat1" id="lat1" required>
+                        Longitude
+                        <input type="text" class="form-control" name="lon1" id="lon1" required>
+                        <br>
+                        <input type="hidden" class="form-control" name="lat" id="lat" readonly required>
+                        <input type="hidden" class="form-control" name="lon" id="lon" readonly required>
+                        This is part of data collection of location identification for enhancing deivery of your order from Deepak Distributors. Please enter your store code and click submit button.
+                        <input type="submit" class="btn btn-primary">
+                      </form>
+                      
+                    </div>
+                    <!-- <a href="#about2" class="main-button">Discover More</a> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hr"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Features Big Item End ***** -->
     
     <!-- ***** Footer Start ***** -->
     <footer>
@@ -186,6 +235,25 @@
     
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
-
+    <script type="text/javascript">
+        var x = document.getElementById("demo");
+        
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+        
+        function showPosition(position) {
+          
+          document.getElementById("lat").value = position.coords.latitude;
+          document.getElementById("lon").value = position.coords.longitude;
+        
+          document.getElementById("lat1").value = position.coords.latitude;
+          document.getElementById("lon1").value = position.coords.longitude;
+        }
+        </script>
   </body>
 </html>
